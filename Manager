@@ -1,0 +1,19 @@
+package management;
+import company.Employee;
+
+public class Manager extends Employee {
+    public Manager(String n, double s, int id) {
+        super(n, s, id);
+    }
+
+    public void showDetails() {
+        display(); // Accessible because it's public
+        System.out.println("Manager can access protected salary: " + salary);
+        // empId not accessible (private)
+    }
+
+    public static void main(String[] args) {
+        Manager m = new Manager("Alice", 80000, 101);
+        m.showDetails();
+    }
+}
