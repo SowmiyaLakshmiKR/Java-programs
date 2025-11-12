@@ -1,0 +1,20 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class MenuDemo extends Application {
+    public void start(Stage s) {
+        Menu file = new Menu("File");
+        MenuItem exit = new MenuItem("Exit");
+        exit.setOnAction(e -> s.close());
+        file.getItems().addAll(new MenuItem("New"), new MenuItem("Open"), new MenuItem("Save"), exit);
+        MenuBar bar = new MenuBar(file, new Menu("Edit"), new Menu("Help"));
+        BorderPane root = new BorderPane();
+        root.setTop(bar);
+        s.setScene(new Scene(root, 300, 200));
+        s.show();
+    }
+    public static void main(String[] a) { launch(); }
+}
