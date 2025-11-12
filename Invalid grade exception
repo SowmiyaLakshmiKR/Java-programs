@@ -1,0 +1,19 @@
+4class InvalidGradeException extends Exception {
+    public InvalidGradeException(String message) {
+        super(message);
+    }
+}
+
+public class StudentGrade {
+    public static void main(String[] args) {
+        try {
+            int marks = 105;
+            if (marks > 100)
+                throw new InvalidGradeException("Marks cannot exceed 100!");
+            else
+                System.out.println("Valid grade: " + marks);
+        } catch (InvalidGradeException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
