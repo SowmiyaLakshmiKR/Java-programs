@@ -1,0 +1,16 @@
+import java.io.*;
+
+public class FileReadExample {
+    public static void main(String[] args) {
+        try {
+            FileReader file = new FileReader("sample.txt");  // file doesn't exist
+            BufferedReader reader = new BufferedReader(file);
+            System.out.println(reader.readLine());
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found! Please check the path.");
+        } catch (IOException e) {
+            System.out.println("Error reading file.");
+        }
+    }
+}
