@@ -1,0 +1,16 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+public class HelloFX extends Application {
+    public void start(Stage s) {
+        Label l = new Label("Hello, JavaFX!\nJava: " +
+                System.getProperty("java.version") +
+                "\nJavaFX: " + System.getProperty("javafx.version"));
+        s.setScene(new Scene(l, 200, 100));
+        s.setTitle("Hello FX");
+        s.show();
+    }
+    public static void main(String[] a) { launch(); }
+}
