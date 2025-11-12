@@ -1,0 +1,23 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class StudentForm extends Application {
+    public void start(Stage s) {
+        TextField name = new TextField("Name");
+        RadioButton m = new RadioButton("Male");
+        RadioButton f = new RadioButton("Female");
+        ToggleGroup g = new ToggleGroup(); m.setToggleGroup(g); f.setToggleGroup(g);
+        ComboBox<String> d = new ComboBox<>(); d.getItems().addAll("CSE", "IT");
+        TextArea out = new TextArea();
+        Button b = new Button("Submit");
+        b.setOnAction(e -> out.setText("Name: " + name.getText() +
+            "\nGender: " + ((RadioButton) g.getSelectedToggle()).getText() +
+            "\nDept: " + d.getValue()));
+        s.setScene(new Scene(new VBox(5, name, m, f, d, b, out), 250, 250));
+        s.show();
+    }
+    public static void main(String[] a) { launch(); }
+}
